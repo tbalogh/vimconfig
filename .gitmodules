@@ -1,0 +1,6 @@
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = https://github.com/wincent/command-t
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = git@github.com:scrooloose/nerdcommenter.git
