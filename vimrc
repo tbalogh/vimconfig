@@ -14,10 +14,20 @@ set history=100
 filetype indent on
 set nowrap
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
 set autoindent
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
 " set hlsearch
 " nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
