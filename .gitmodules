@@ -4,3 +4,6 @@
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "bundle/indentpython"]
+	path = bundle/indentpython
+	url = git@github.com:vim-scripts/indentpython.vim.git
