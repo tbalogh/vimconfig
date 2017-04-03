@@ -7,3 +7,15 @@
 [submodule "bundle/indentpython"]
 	path = bundle/indentpython
 	url = git@github.com:vim-scripts/indentpython.vim.git
+[submodule "bundle/bundle/youcompleteme"]
+	path = bundle/bundle/youcompleteme
+	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "bundle/youcompleteme"]
+	path = bundle/youcompleteme
+	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git@github.com:vim-syntastic/syntastic.git
+[submodule "bundle/vim-flake8"]
+	path = bundle/vim-flake8
+	url = https://github.com/nvie/vim-flake8
