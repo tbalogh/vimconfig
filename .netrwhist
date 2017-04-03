@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/tbalogh/.vim'
+let g:netrw_dirhist_2='/Users/tbalogh/dev/sandboxes/python/scrapers/scrapy_spiders'
+let g:netrw_dirhist_3='/Users/tbalogh/dev/sandboxes/python/scrapers/scrapy_spiders/scrapy_spiders'
+let g:netrw_dirhist_4='/Users/tbalogh/dev/sandboxes/python/scrapers/scrapy_spiders/scrapy_spiders/spiders'
+let g:netrw_dirhist_5='/Users/tbalogh/dev/sandboxes/python/scrapers/scrapy_spiders'
+let g:netrw_dirhist_6='/Users/tbalogh/dev/sandboxes/python/scrapers/scrapy_spiders/scrapy_spiders'
+let g:netrw_dirhist_7='/Users/tbalogh/dev/sandboxes/python/scrapers/scrapy_spiders/scrapy_spiders/spiders'
+let g:netrw_dirhist_8='/Users/tbalogh/dev/sandboxes/python/scrapers/scripts'
