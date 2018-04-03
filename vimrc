@@ -1,72 +1,92 @@
 execute pathogen#infect()
-filetype plugin indent on
-filetype on
-syntax on
+syntax enable
 
-set number
-set hidden
-set backspace=indent,eol,start
-set encoding=utf-8
-set foldmethod=indent
-set foldlevel=99
-set showmatch
-set history=100
+let &rtp  = '~/.vim/bundle/vimtex,' . &rtp
+let &rtp .= ',~/.vim/bundle/vimtex/after'
 
-let g:ycm_autoclose_preview_window_after_completion=1
 let mapleader=" "
-map <leader>s :source ~/.vimrc<CR>
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" INDENTATION
-filetype indent on
-set nowrap
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
+
+let $PATH="/usr/local/bin:".$PATH
+let g:ycm_server_python_interpreter='/usr/local/bin/python'
+
+
+set backspace=indent,eol,start
 set autoindent
 
-" SEARCH
+
+" Colors {{{
+colorscheme ambient
+" }}}
+" Spaces and tabs {{{
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+" }}}
+" UI {{{
+filetype indent plugin on
+set number
+set relativenumber
+set showcmd
+set cursorline
+set ruler
+set wildmenu
+set lazyredraw
+set showmatch
+
+" highlight last inserted text
+nnoremap gV `[v`]
+" }}}
+" Search {{{
+set incsearch
 set hlsearch
-set smartcase
-set ignorecase
-" HLSEARCH (currently not working)
-" set hlsearch
-" nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
-" mapclear
+nnoremap <leader><space> :nohlsearch<CR>
+" }}}
+" Folding {{{
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
+nnoremap , za
+" }}}
+" Movement {{{
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+nnoremap B ^
+nnoremap E $
+nnoremap $ <nop>
+nnoremap ^ <nop>
 
-nnoremap <F3> :ls<CR>
-nnoremap <Leader><Leader> :e#<CR>
-map <leader>s :source ~/.vimrc<CR>
+" }}}
+" CtrlP {{{
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s --nocolor --hidden -g ""'
+let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
 
-"PYTHON
+" }}}
+" Window navigation {{{
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" }}}
+" Misc {{{
+nnoremap <leader>u :GundoToggle<CR>
+" }}}
 
-" Virtual env support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+" Python {{{
+autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+autocmd FileType python nnoremap <buffer> <F10> :exec '!python -m unittest' shellescape(@%, 1)<cr>
+" }}}
 
-" Indentation
-highlight BadWhitespace ctermbg=red guibg=darkred
-au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix |
-    \ match BadWhitespace /\s\+$/
+" Mappings {{{
+nnoremap <leader>n :NERDTreeToggle<CR>
+" }}}
 
-let python_highlight_all=1
-
-" NERDTREE
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-map <C-n> :NERDTreeToggle<CR>
+" vim:foldmethod=marker:foldlevel=0
+map <C-j> cw<C-r>0<ESC>
